@@ -1,0 +1,75 @@
+.menu{
+	background-color: lightgrey;
+	height: 60px;
+	width: 60px;
+	border-radius: 100px;
+	position: absolute;
+	right: 25px;
+	bottom: 25px;
+	z-index: 2;
+	border-width: 1px;
+	border-style: solid;
+}
+#menuButton{
+	display: none;
+}
+
+input:checked ~ label .menu{
+	transition: 1s;
+	box-shadow:  0 0 0 130vw lightgrey, 0 0 0 130vh lightgrey;
+}
+input:checked ~ label .hamburger{
+	animation: rotate 1s;
+	transform: rotateZ(90deg);
+}
+input:checked ~ ul{
+	transition: 3s;
+	animation: appear 3s;
+	opacity: 1;
+}
+
+@keyframes rotate{
+	from {transform: rotateZ(0deg);}
+ 	to {transform: rotateZ(90deg);}
+}
+@keyframes appear{
+	0% {left: 90%;}
+ 	60% {left: 50%;}
+}
+
+.hamburger{
+	background-color: black;
+	content: "";
+	display: block;
+	position: relative;
+	right: -13.5px;
+	bottom: -28px;
+	height: 2px;
+	width: 30px;
+}
+
+.hamburger:before,
+.hamburger:after{
+	background-color: black;
+	content: "";
+	display: block;
+	position: relative;
+	height: 2px;
+	width: 30px;
+}
+.hamburger:before{
+	top: 13px;
+}
+.hamburger:after{
+	bottom: 13px;
+}
+ul {
+    list-style: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    font-size: 45px;
+    z-index: 2;
+}
